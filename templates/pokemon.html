@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+    <div class="pokedex">
+        {% for p in pokemones %}
+        <div class="pokemon-card">
+            <img src="{{ url_for('static', filename='img/' + p.imagen) }}" alt="{{ p.nombre }}">
+            <h2>{{ p.nombre }} (#{{ p.id }})</h2>
+            <p><strong>Tipo:</strong> {{ p.tipo }}</p>
+            <p><strong>Poder:</strong> {{ p.poder }}</p>
+            <p><strong>Altura:</strong> {{ p.altura }}</p>
+            <p><strong>Peso:</strong> {{ p.peso }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
